@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:fragment="layout(content)">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script type="text/javascript" th:src="@{/js/script.js}"></script>
+<link rel="stylesheet" href="./css/style.css">
+ <link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+	 <nav>
+        <div>
+           <div class="nav-firstcol">
+            	<div class="nav-logo"><i class="fa-solid fa-bus"></i></div>
+				<h2>Book Your Seat</h2>
+        	</div>
+        </div>
+        <ul class="items">
+            <li class="item"><a  href="/">Home</a></li>
+			<li class="item"><a href="#bys">Book Your Seat</a></li>
+			<li th:if="${session.loginuser ne null}" class="item"><a  href="/logoutuser">Logout</a></li>
+            <li th:if="${session.loginuser == null}" class="item"><a  href="/loginpage">Login</a></li>
+            <li th:if="${session.loginuser == null}" class="item"><a  href="/register">Register</a></li>
+        </ul>
+    </nav>
+	<div th:replace="${content}"></div>
+</body>
+</html>

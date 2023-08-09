@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlsn:th="http://www.thymeleaf.org" th:replace="base::layout(~{::section})">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<section>
+<div class="bgcontainer">
+	<div class="regcontainer"> 
+				<h3 style="text-align:center;color:black;border-bottom:1px solid white;margin-bottom:5px;">Registration Form</h3>
+                <form action="#" th:action="@{/saveuser}" th:object="${user}" method="POST" id="registerform" > 
+                    <div class="form-field"> 
+                      <label for="name">Name</label> 
+                      <input type="text" th:field="*{name}" class="setwidth" name="name" id="name" placeholder="Enter your name"></input>
+                    <div class="message">
+                     <i class="fa fa-check" aria-hidden="true"></i>
+                     <i class="fa fa-exclamation" aria-hidden="true"></i>
+                      <small>Error Message</small>
+                    </div>
+                    </div>
+                    <div class="form-field"> 
+                      <label for="email">Email</label> 
+                      <input type="text" th:field="*{email}" class="setwidth" required name='email' id="email" placeholder="Enter your email"></input>
+                      <div class="message">
+                        <i class="fa fa-check" id='correct' aria-hidden="true"></i>
+                        <i class="fa fa-exclamation" aria-hidden="true"></i>
+                        <small>Error Message</small>
+                      </div>
+                    </div>
+                    <div class="form-field"> 
+                      <label for="password">Password</label> 
+                      <input type="text" th:field="*{password}" class="setwidth" required name="password" id="password" placeholder="password">
+                      <div class="message">
+                     <i class="fa fa-check" aria-hidden="true"></i>
+                     <i class="fa fa-exclamation" aria-hidden="true"></i>
+                      <small>Error Message</small>
+                      </div>
+                    </div>
+                    <div class="form-field"> 
+                      <label for="mno">Mobile no</label> 
+                      <input type="text" th:field="*{mno}" class="setwidth" required name="mno" id="mno" placeholder="Enter your mobile no">
+                      <div class="message">
+                         <i class="fa fa-check" aria-hidden="true"></i>
+                         <i class="fa fa-exclamation" aria-hidden="true"></i> 
+                         <small>Error Message</small>
+                      </div>
+                    </div>
+                    <input class="btn" type='submit' value="submit" />
+            </form>
+        </div>
+</div>
+</section>
+</body>
+</html>

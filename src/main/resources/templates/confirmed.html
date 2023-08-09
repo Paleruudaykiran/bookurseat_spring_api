@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org" th:replace="base::layout(~{::section})">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+ <section>
+   Your booking is confirmed
+   <div class="card">
+        <h3 class="header">Booking Confirmed!</h3>
+        <div id="busdetails" style="margin:10px auto;">
+            <h4 style="text-align: center;margin-top:5px;padding:5px">Here are details for Your reference</h4>
+            <div class="ditem">
+                <p>PNR no: </p>
+                <p id="pnr" th:text="${session.booking.id}"></p>
+            </div>
+            <div class="ditem">
+                <p>Bus Id: </p>
+                <p id="tid" th:text="${session.bus.id}"></p>
+            </div>
+            <div class="ditem">
+                <p>Travels Name</p>
+                <p id="tname" th:text="${session.bus.travelsName}"></p>
+            </div>
+            <div class="ditem">
+                <p>Boarding At</p>
+                <p id="boards" th:text="${session.bus.boards}"></p>
+            </div>
+            <div class="ditem">
+                <p>Stops At</p>
+                <p id="stops" th:text="${session.bus.stops}"></p>
+            </div>
+            <div class="ditem">
+                <p>Total Price</p>
+                <p id="tprice" th:text="${session.booking.price}"></p>
+            </div>
+            <div class="ditem">
+                <p>Your Seats</p>
+                <p id="yseats" th:text="${session.booking.seatnos}"></p>
+            </div>
+            <div>
+                Person details: 
+                <div class="ditem">
+                    <p>Name: </p>
+                    <p id="cname" th:text="${session.loginuser.name}"></p>
+                </div>
+                <div class="ditem">
+                    <p>Email: </p>
+                    <p id="email" th:text="${session.loginuser.email}"></p>
+                </div>
+                <div class="ditem">
+                    <p>Mobile no: </p>
+                    <p id="mno" th:text="${session.loginuser.mno}"></p>
+                </div>
+            </div>
+        </div>
+   
+ </section>
+</body>
+</html>

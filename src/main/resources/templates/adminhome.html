@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Admin home</title>
+<link rel="stylesheet" href="./css/style.css">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<style>
+table {
+	border-collapse: collapse;
+	width: 90%;
+	color: #333;
+	font-family: Arial, sans-serif;
+	font-size: 14px;
+	text-align: center;
+	border-radius: 10px;
+	overflow: hidden;
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+	margin: auto;
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+
+table th {
+	background-color: #ff9800;
+	color: #fff;
+	font-weight: bold;
+	padding: 10px;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	border-top: 1px solid #fff;
+	border-bottom: 1px solid #ccc;
+}
+
+table tr:nth-child(even) td {
+	background-color: #f2f2f2;
+}
+
+table tr:hover td {
+	background-color: #ffedcc;
+}
+
+table td {
+	background-color: #fff;
+	padding: 10px;
+	border-bottom: 1px solid #ccc;
+	font-weight: bold;
+}
+
+.split {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.btn {
+	background-color: inherit;
+	border: 1px solid blue;
+	display: block;
+	padding: 5px 10px;
+	border-radius: 2px;
+	font-size: 1.2rem;
+}
+
+.btn:hover {
+	background-color: skyblue;
+}
+
+#addbus {
+	background-color: skyblue;
+	box-shadow: 1px 2px black;
+	padding: 5px 10px;
+	width: 400px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.form-group {
+	margin: 15px 5px;
+}
+
+.form-group>* {
+	display: inline-block;
+}
+
+.form-group input {
+	border: none;
+	background-color: inherit;
+	color: black;
+	border-bottom: 1px solid black;
+}
+
+.form-group input:focus {
+	outline: none;
+	border-bottom: 2px solid black;
+}
+
+.btn {
+	display: block;
+	padding: 5px 10px;
+	background-color: inherit;
+	border: 1px solid black;
+}
+
+.btn:hover {
+	border: 1px solid darkblue;
+}
+
+.search {
+	text-align: center;
+}
+
+.add-btn {
+	text-decoration: none;
+	border: 2px solid blue;
+	text-align: center;
+	padding: 3px 5px;
+	font-size: bold;
+	color: black;
+	border-radius: 10px;
+	text-align: center;
+}
+
+.add-btn:hover {
+	border: 2px solid red;
+}
+
+.icon {
+	display: inline;
+}
+
+.icon:hover {
+	color: blue;
+}
+
+.icon-delete {
+	color: red;
+	margin-right: 10px;
+}
+
+.icon-edit {
+	color: green;
+}
+
+.confirm-btn:hover {
+	background-color: red;
+}
+</style>
+</head>
+<body>
+	<div class="container">
+		<div class="split">
+			<h3 style="color: #333">Welcome Admin</h3>
+			<a th:href="@{'/addbus'}" class="add-btn"><iclass="fa-solid fa-plus" style="margin-right: 5px;"></i>Add Bus</a>
+		</div>
+		<div class="form-group search">
+			<form method="get" action="asearch">
+				<input type="text" id="ssource" placeholder="Boarding point"
+					name="ssource" /> <input type="text" id="sdestination"
+					placeholder="Stop Point" name="sdestination" /> <input class="btn"
+					style="text-align: center; margin: 10px auto; border: 1px solid red;"
+					type="submit" value="Search" />
+			</form>
+		</div>
+				<h3 class="header">Here are the results</h3>
+				<div>
+					<table id="bavil">
+						<thead>
+							<th>Id</th>
+							<th>Travels</th>
+							<th>Boarding At</th>
+							<th>Stops At</th>
+							<th>Total Seats</th>
+							<th>Cost</th>
+							<th>Actions</th>
+						</thead>
+						<tbody>
+								<tr th:each="bus : ${list}">
+									<td th:text="${bus.id}" ></td>
+									<td th:text="${bus.travelsName}"></td>
+									<td th:text="${bus.boards}"></td>
+									<td th:text="${bus.stops}"></td>
+									<td th:text="${bus.seats}"></td>
+									<td th:text="${bus.price}"></td>
+									<td><a th:href="@{'/delete/' + ${bus.id}}" 
+										class="icon icon-delete"> <i
+											class="fa-solid fa-trash-can fa-xl"></i></a> <a
+										 th:href="@{'/edit/' + ${bus.id}}"
+										class="icon icon-edit"><i
+											class="fa-solid fa-pen-to-square fa-xl"></i></a></td>
+								</tr>
+						</tbody>
+					</table>
+				</div>
+		</div>
+	</div>
+</body>
+</html>

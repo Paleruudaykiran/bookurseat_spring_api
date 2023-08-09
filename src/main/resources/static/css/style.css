@@ -1,0 +1,444 @@
+@charset "ISO-8859-1";
+* {
+	margin:0;
+	padding:0;
+}
+nav {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 10px;
+	background-color: violet;
+}
+
+.items {
+	margin-left: auto;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.item {
+	list-style-type: none;
+	margin-left: 40px;
+	font-size: 20px;
+}
+li {
+	position:relative;
+}
+.item:hover {
+	opacity: 0.8;
+}
+
+a {
+	text-decoration: none;
+	color: rgba(0,0,0,0.6);
+}
+ nav a::after {
+	content: '';
+	width:0%;
+	position: absolute;
+	height:1px;
+	background-color:darkblue;
+	top: 100%;
+    transform: translateX(-100%);
+    transition: 1s;
+}
+a:hover {
+	color:darkblue;
+}
+a:hover::after {
+	width:100%;
+}
+.nav-firstcol {
+	display:flex;
+	justify-content: space-between;
+	align-items: center;
+	gap:10px;
+	color:darkblue;
+	text-align: center;
+}
+.nav-firstcol:hover {
+	color:gold;
+}
+.nav-logo {
+	
+	border-radius: 100%;
+	padding:5px;
+	border:2px solid darkblue;
+}
+.message { 
+   display:flex;
+}
+.message > * { 
+    width:100%;
+}
+
+.fa-check,.fa-exclamation { 
+     visibility:hidden;
+     width:17px; 
+     position: absolute;
+     
+}
+.fa-check { 
+     color:black;
+     background-color:green;
+     border-radius:50%;
+}
+.fa-exclamation { 
+     text-align:center;
+     width:15px;
+     color:black;
+     background-color:red;
+     border-radius:50%;
+}
+small { 
+   text-align:right;
+   visibility:hidden;
+   margin-left:25px;
+}
+form label {
+	display:block;
+	margin-bottom: 5px;
+}
+.regcontainer {
+	/* From https://css.glass */
+background: rgba(255, 255, 255, 0.5);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(5px);
+-webkit-backdrop-filter: blur(5px);
+border: 1px solid rgba(255, 255, 255, 0.3);
+width:400px;
+margin:10px auto;
+position:absolute;
+transform:translate(100%,10%);
+padding:10px;
+}
+.bgcontainer {
+	background-image: url('../images/backgroundimage.jpg');
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	height:90vh;
+	position:relative;
+}
+#registerform {
+	
+	width:100%;
+}
+#registerform .setwidth {
+	 line-height:1.5rem;
+    border-style:none;
+    border-bottom:1px solid black;
+    background-color: skyblue;
+    width:100%;
+    padding:4px;
+}
+.btn { 
+  width:100%;
+  background-color:blue; 
+  color:white;
+  border:1px solid black;
+  padding:5px;
+  text-transform:uppercase;
+}
+.btn:hover { 
+  background-color:rgb(157, 118, 210); 
+  color:white;
+}
+.form-group {
+	margin:10px 0;
+}
+#addbus {
+	width:500px;
+	margin:10px auto;
+	background: rgba(255, 255, 255, 0.5);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(5px);
+-webkit-backdrop-filter: blur(5px);
+border: 1px solid rgba(255, 255, 255, 0.3);
+padding:10px;
+}
+table {
+	border-collapse: collapse;
+	width: 90%;
+	color: #333;
+	font-family: Arial, sans-serif;
+	font-size: 14px;
+	text-align: center;
+	border-radius: 10px;
+	overflow: hidden;
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+	margin: auto;
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+
+table th {
+	background-color: #ff9800;
+	color: #fff;
+	font-weight: bold;
+	padding: 10px;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	border-top: 1px solid #fff;
+	border-bottom: 1px solid #ccc;
+}
+
+table tr:nth-child(even) td {
+	background-color: #f2f2f2;
+}
+
+table tr:hover td {
+	background-color: #ffedcc;
+}
+
+table td {
+	background-color: #fff;
+	padding: 10px;
+	border-bottom: 1px solid #ccc;
+	font-weight: bold;
+}
+
+.split {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.btn {
+	background-color: inherit;
+	border: 1px solid blue;
+	display: block;
+	padding: 5px 10px;
+	border-radius: 2px;
+	font-size: 1.2rem;
+}
+
+.btn:hover {
+	background-color: skyblue;
+}
+
+#addbus {
+	background-color: skyblue;
+	box-shadow: 1px 2px black;
+	padding: 5px 10px;
+	width: 400px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.form-group {
+	margin: 15px 5px;
+}
+
+.form-group>* {
+	display: inline-block;
+}
+
+.form-group input {
+	border: none;
+	background-color: inherit;
+	color: black;
+	border-bottom: 1px solid black;
+}
+
+.form-group input:focus {
+	outline: none;
+	border-bottom: 2px solid black;
+}
+
+.btn {
+	display: block;
+	padding: 5px 10px;
+	background-color: inherit;
+	border: 1px solid black;
+}
+
+.btn:hover {
+	border: 1px solid darkblue;
+}
+
+.search {
+	text-align: center;
+}
+
+.add-btn {
+	text-decoration: none;
+	border: 2px solid blue;
+	text-align: center;
+	padding: 3px 5px;
+	font-size: bold;
+	color: black;
+	border-radius: 10px;
+	text-align: center;
+}
+
+.add-btn:hover {
+	border: 2px solid red;
+}
+
+.icon {
+	display: inline;
+}
+
+.icon:hover {
+	color: blue;
+}
+
+.icon-delete {
+	color: red;
+	margin-right: 10px;
+}
+
+.icon-edit {
+	color: green;
+}
+
+.confirm-btn:hover {
+	background-color: red;
+}
+.bg-container {
+            background-image: url(../images/backgroundimage.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            height:90vh;
+        }
+        .bg {
+            height:90vh;
+            background-color: rgba(0,0,0,0.6);
+            display:table;
+            width:100%;
+        }
+        .bg-content {
+            margin:auto 10px;
+            color:white;
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+            font-size: 2rem;
+        }
+        .twocollayout {
+            display:flex;
+            justify-content: center;
+            align-items:center;
+            background-color:aliceblue;
+            padding:15px;
+        }
+        .sinput {
+            border:none;
+            display:block;
+            margin:10px 0;
+            background-color: inherit;
+            border-bottom: 1px solid black;
+            padding:4px 6px;
+            width:90%;
+        }
+        .sinput:focus {
+            border-bottom: 2px solid black;
+            outline:none;
+        }
+.firstcol {
+            font-size: 2rem;
+            width:500px;
+            text-align: center;
+        }
+        .secondcol {
+            background-color: aqua;
+            font-size: 1.5rem;
+            padding:10px;
+            box-shadow: 1px 2px 1px black;
+            width:25%;
+        }
+  .twocollayout {
+            display:flex;
+            justify-content: center;
+            align-items:center;
+            background-color:aliceblue;
+            padding:15px;
+        }
+        .sinput {
+            border:none;
+            display:block;
+            margin:10px 0;
+            background-color: inherit;
+            border-bottom: 1px solid black;
+            padding:4px 6px;
+            width:90%;
+        }
+        .sinput:focus {
+            border-bottom: 2px solid black;
+            outline:none;
+        }
+        label {
+            display:block;
+        }
+        .btn {
+            display:block;
+            width:90%;
+            padding:5px 10px;
+            background-color: inherit;
+            border: 1px solid black;
+        }
+        a {
+            text-decoration: none;
+            text-align: center;
+        }
+        .btn:hover {
+            background-color: skyblue;
+        }
+        .firstcol {
+            font-size: 2rem;
+            width:500px;
+            text-align: center;
+        }
+        .secondcol {
+            background-color: aqua;
+            font-size: 1.5rem;
+            padding:10px;
+            box-shadow: 1px 2px 1px black;
+            width:25%;
+        }
+        #busdetails {
+            background-color: whitesmoke;
+            width:400px;
+            
+        }
+        .ditem {
+            display: flex;
+            justify-content:space-between;
+            align-items:center;
+            border-bottom: 1px solid skyblue;
+            padding:10px;
+        }
+        .ditem:hover {
+            background-color: aliceblue;
+        }
+        .header {
+            color:blue;
+            text-align: center;
+            text-transform: uppercase;
+        }
+        #cseats {
+            display: grid;
+            grid-template-columns: 40px 80px 40px 40px;
+            gap:10px;
+            background-color: antiquewhite;
+            padding:5px;
+        }
+        #cseats > * {
+            border:1px solid green;
+            /* height:50px; */
+            text-align: center;
+            border-radius: 10px;
+            padding:20px 5px;
+        }
+        .seat:hover {
+            background-color: gainsboro;
+        }
+        .oddseat {
+            width:30px;
+        }

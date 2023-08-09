@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+	<div id="addbus">
+					<h3 class="header"
+					style="text-align: center; color: black; font-weight: 100; border-bottom: 1px solid black;">Fill
+						in details</h3>
+					<form action="#" th:action="@{/save}" th:object="${bus}" method="post" id="registerform">
+						<div class="form-group">
+							<label for="id" style="visibility:hidden;" >Id</label>
+							<input type="hidden" th:field="*{id}" id="id" name="id" Class="id rightalign setwidth" />
+						</div>
+						<div class="form-group">
+							<label for="tname" >Travels name</label>
+							<input type="text" th:field="*{travelsName}" Class="tname setwidth"
+								placeholder="Travels name" id="tname" name="tname" />
+						</div>
+						<div class="form-group">
+							<label for="boards">Starting Point</label>
+							<input class="boards setwidth" th:field="*{boards}" type="text"
+								placeholder="Boarding at" id="boards" name="boards" />
+						</div>
+						<div class="form-group">
+							<label for="stops" >Stopping Point</label>
+							<input th:field="*{stops}" Class="stops setwidth" type="text"
+								placeholder="Stops at" id="stops" name="stops" />
+						</div>
+						<div class="form-group">
+							<label for="savail" >Seats Available</label>
+							<input Class="savail setwidth"  type="number" th:field="*{seats}"
+								placeholder="Seats Available" id="savail" name="savail" />
+						</div>
+						<div class="form-group">
+							<label for="price" >Cost</label>
+							<input th:field="*{price}" Class="cost setwidth" type="number"
+								placeholder="price" id="price" name="price" />
+						</div>
+						<button
+							style="text-align: center; margin-left: auto; margin-right: auto;"
+							class="btn confirm-btn" type="submit">Confirm Details</button>
+					</form>
+				</div>
+</body>
+</html>

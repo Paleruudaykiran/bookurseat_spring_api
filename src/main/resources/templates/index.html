@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org" th:replace="base::layout(~{::section})">
+<head>
+<meta charset="ISO-8859-1">
+<title th:text="${username}"></title>
+<link rel="stylesheet" href="./css/style.css">
+ <link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+<section>
+    <div class="bg-container">
+        <div class="bg">
+            <h1 class="bg-content">
+                The <span style="color:red">journey</span> of a thousand miles begins with a single step.
+            </h1>
+        </div>
+    </div>
+    <div id="bys" class="twocollayout">
+        <div class="firstcol">
+            Make Your <span style="color:red;">Journey</span> Special, Choose right thing in right time
+        </div>
+        <div class="secondcol">
+         <form action="usersearch" method="post">
+                <label for="start">From</label>
+                <input class="sinput" type="text" placeholder="Onboarding point" id="start" name="start" >
+                <label for="end">To</label>
+                <input class="sinput" type="text" placeholder="Droping point" id="end" name="end" >
+                <button style="color:black;" class="btn" type="submit" value="submit">Submit</button>
+         </form>
+        </div>
+    </div>
+    <div>
+        <table id="bavil" style="margin-top:10px;">
+			<h2 style="text-align:center;color:red;padding:5px;">Make Your Own Choice</h2>
+            <thead>
+                <th>Id</th>
+                <th>Travels</th>
+                <th>Boarding At</th>
+                <th>Stops At</th>
+                <th>Seats Available</th>
+                <th>Cost</th>
+                <th>Actions</th>
+            </thead>
+            <tbody>
+				<tr th:each="bus : ${list}">
+									<td th:text="${bus.id}" ></td>
+									<td th:text="${bus.travelsName}"></td>
+									<td th:text="${bus.boards}"></td>
+									<td th:text="${bus.stops}"></td>
+									<td th:text="${bus.seats}"></td>
+									<td th:text="${bus.price}"></td>
+									<td><a th:href="@{'/book/' + ${bus.id}}" 
+										class="icon btn" style="color:black;"> Book </a> </td>
+								</tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+</body>
+</html>

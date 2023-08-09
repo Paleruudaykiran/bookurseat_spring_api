@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlsn:th="http://www.thymeleaf.org" th:replace="base::layout(~{::section})">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<section>
+        <div class="regcontainer">
+         <p id="error"></p>
+		<h3 class="header" style="text-align:center;color:black;border-bottom:1px solid black;margin-bottom:5px;" >Login Form</h3>
+		 <form action="validateuser" id="registerform" method="post">
+			<div class="form-group">
+            <label for="uname">Username</label>
+            <input class="setwidth" type="text" name="uname" id="uname" placeholder="username"> 
+			</div>
+			<div class="form-group">
+            <label for="pass">Password</label>
+            <input class="setwidth" type="password" name="pass" id="pass" placeholder="password">
+			</div>
+            <button style="color:black;" class="btn" value="submit">Submit</button>
+		</form>
+        </div>
+	</section>
+</body>
+</html>

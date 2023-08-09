@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Booking On The Way</title>
+<script src="./js/script.js"></script>
+<link rel="stylesheet" href="./css/style.css">
+ <link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body onload="initialize();">
+ <nav>
+        <div>
+           <div class="nav-firstcol">
+            	<div class="nav-logo"><i class="fa-solid fa-bus"></i></div>
+				<h2>Book Your Seat</h2>
+        	</div>
+        </div>
+        <ul class="items">
+            <li class="item"><a  href="/">Home</a></li>
+			<li class="item"><a href="#bys">Book Your Seat</a></li>
+			<li th:if="${session.loginuser ne null}" class="item"><a  href="/logoutuser">Logout</a></li>
+            <li th:if="${session.loginuser == null}" class="item"><a  href="/loginpage">Login</a></li>
+            <li th:if="${session.loginuser == null}" class="item"><a  href="/register">Register</a></li>
+        </ul>
+    </nav>
+	<div>
+		<h3 class="header">Start Your Booking</h3>
+    <div style="display:grid;grid-template-columns:auto auto;">
+    <div id="busdetails" style="margin:auto;">
+        <h4 style="text-align: center;margin-top:5px;padding:5px">Bus Details</h4>
+        <div class="ditem">
+            <p>Bus Id: </p>
+            <p id="tid" th:text="${session.bus.id}"></p>
+        </div>
+        <div class="ditem">
+            <p>Travels Name</p>
+            <p id="tname" th:text="${session.bus.travelsName}"></p>
+        </div>
+        <div class="ditem">
+            <p>Boarding At</p>
+            <p id="boards" th:text="${session.bus.boards}"></p>
+        </div>
+        <div class="ditem">
+            <p>Stops At</p>
+            <p id="stops" th:text="${session.bus.stops}"></p>
+        </div>
+        <div class="ditem">
+            <p>Seats Available</p>
+            <p id="seats" th:text="${session.bus.seats}"></p>
+        </div>
+        <div class="ditem">
+            <p>Price</p>
+            <p id="cost" th:text="${session.bus.price}"></p>
+        </div>
+    </div>
+    <div>
+    <div class="" style="display:grid;grid-template-columns: auto auto; gap:20px;align-items: center;margin:auto;">
+    <div id="cseats" style="margin:auto; background-color: inherit;">
+        <div class="seat">1</div>
+        <div class="seat oddseat">2</div>
+        <div class="seat">3</div>
+        <div class="seat">4</div>
+        <div class="seat">5</div>
+        <div class="seat oddseat">6</div>
+        <div class="seat">7</div>
+        <div class="seat">8</div>
+        <div class="seat">9</div>
+        <div class="seat oddseat">10</div>
+        <div class="seat">11</div>
+        <div class="seat">12</div>
+        <div class="seat">13</div>
+        <div class="seat oddseat">14</div>
+        <div class="seat">15</div>
+        <div class="seat">16</div>
+        <div class="seat">17</div>
+        <div class="seat oddseat">18</div>
+        <div class="seat">19</div>
+        <div class="seat">20</div>
+        <div class="seat">21</div>
+        <div class="seat oddseat">22</div>
+        <div class="seat">23</div>
+        <div class="seat">24</div>
+    </div>
+    </div>
+   </div>
+</div>
+</div>
+    </div>
+    <div class="twocollayout">
+        <div class="firstcol">
+            Will have a <span style="color:red;"> safe Journey</span>, make it special with your visit
+        </div>
+        <form class="secondcol" action="confirmbooking" method="post">
+				<label for="seatsSelected">Your Seats</label>
+				<input class="sinput" id="seatsYouSelected" name="seatsSelected"></input>
+                <label for="cname">Name</label>
+                <input class="sinput" type="text" placeholder="name" id="cname" name="cname" th:value=${session.loginuser.name}>
+                <label for="email">Email</label>
+                <input class="sinput" type="text" placeholder="email (optional)" id="email" name="email" th:value="${session.loginuser.email}" >
+                <label for="mno">Mobile Number</label>
+                <input class="sinput" type="number" placeholder="mobile no" id="mno" name="mno" th:value="${session.loginuser.mno}">
+                <button class="btn" style="color:black;">Confirm Booking</button>
+        </form>
+    </div>
+    </div>
+</body>
+</html>
